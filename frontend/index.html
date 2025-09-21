@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>FastAPI Auth Test</title>
+</head>
+<body>
+    <h1>Register</h1>
+    <input type="email" id="regEmail" placeholder="Email">
+    <input type="text" id="regName" placeholder="Full Name">
+    <input type="password" id="regPass" placeholder="Password">
+    <button onclick="register()">Register</button>
+    <p id="regMessage"></p>
+
+    <h1>Login</h1>
+    <input type="email" id="logEmail" placeholder="Email">
+    <input type="password" id="logPass" placeholder="Password">
+    <button onclick="login()">Login</button>
+    <p id="logMessage"></p>
+
+    <script>
+        const BACKEND_URL = "http://127.0.0.1:8000"; // FastAPI backend
+
+        async function register() {
+            const email = document.getElementById("regEmail").value;
+            const name = document.getElementById("regName").value;
+            const password = document.getElementById("regPass").value;
+            const messageEl = document.getElementById("regMessage");
+
+            try {
+                const res = await fetch(`${BACKEND_URL}/auth/register`, {
+                    method: "POST",
+                    headers: {"Content-Type": "application/json"},
+                    body: JSON.stringify({email, full_name: name, password})
+                });
+                const data = await res.json();
+                if (res.ok) {
+                    messageEl.style.color = "green";
+                    messageEl.textContent = `Registered successfully! ID: ${data.id}, Email: ${data.email}`;
+                } else {
+                    messageEl.style.color = "red";
+                    messageEl.textContent = data.detail || JSON.stringify(data);
+                }
+            } catch (err) {
+                messageEl.style.color = "red";
+                messageEl.textContent = "Error connecting to backend.";
+            }
+        }
+
+        async function login() {
+            const email = document.getElementById("logEmail").value;
+            const password = document.getElementById("logPass").value;
+            const messageEl = document.getElementById("logMessage");
+
+            try {
+                const res = await fetch(`${BACKEND_URL}/auth/login`, {
+                    method: "POST",
+                    headers: {"Content-Type": "application/json"},
+                    body: JSON.stringify({email, password})
+                });
+                const data = await res.json();
+                if (res.ok) {
+                    messageEl.style.color = "green";
+                    messageEl.textContent = `Login successful! Token: ${data.access_token}`;
+                    // Optional: save token for later use
+                    localStorage.setItem("jwt_token", data.access_token);
+                } else {
+                    messageEl.style.color = "red";
+                    messageEl.textContent = data.detail || JSON.stringify(data);
+                }
+            } catch (err) {
+                messageEl.style.color = "red";
+                messageEl.textContent = "Error connecting to backend.";
+            }
+        }
+    </script>
+</body>
+</html>
