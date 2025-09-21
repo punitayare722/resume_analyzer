@@ -1,19 +1,21 @@
 # AI Resume Analyser
 
-[![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
-**AI Resume Analyser** is a web application that allows users to upload their resumes and a target job description. Using AI (Groq API), the system optimizes the resume content to match the job description and generates a professional, styled PDF resume. This project demonstrates the integration of machine learning, data preprocessing, and full-stack web development.
+
+**AI Resume Analyser** is a web application that evaluates your existing resume against a target job description. It provides insights into your current skills, highlights missing skills, calculates a skill match percentage, and generates a roadmap for skill improvement. This project demonstrates skills in data analysis, AI integration, and full-stack development.
 
 ---
 
 ## Features
 
-- Upload existing resumes in PDF format.  
-- Input a target **Job Description**.  
-- AI analyzes and updates the resume content to align with the job description.  
-- Generates **styled PDF resumes** in multiple templates: Default, Modern, Creative.  
-- Download the optimized resume instantly.  
-- Full-stack solution using **FastAPI** backend and **React** frontend.  
+- Upload existing resume in PDF format.  
+- Input a **Job Description** for comparison.  
+- AI analyzes your resume to identify:  
+  - Existing skills  
+  - Missing skills  
+  - Skill match percentage  
+- Generates a **personalized roadmap** to improve skill alignment with the target job.  
+- Provides downloadable report (PDF) with insights and recommendations.  
 
 ---
 
@@ -22,11 +24,33 @@
 - **Frontend:** React.js  
 - **Backend:** FastAPI  
 - **AI Integration:** Groq API LLM  
+- **Data Analysis:** Python (Pandas, NumPy, Scikit-learn)  
 - **PDF Generation:** ReportLab, PyMuPDF  
-- **Database:** (Optional, e.g., SQLite/PostgreSQL)  
-- **Others:** Axios, Python libraries (Pandas, NumPy)
 
 ---
 
 ## Project Structure
+
+---
+
+## Getting Started
+
+### Prerequisites
+
+- Python 3.10+  
+- Node.js & npm  
+- Groq API key  
+- Git  
+
+---
+
+### Backend Setup
+
+1. Navigate to the backend folder:
+
+```bash
+
+cd backend
+
+
 
