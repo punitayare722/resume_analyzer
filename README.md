@@ -25,7 +25,8 @@
 - **Backend:** FastAPI  
 - **AI Integration:** Groq API LLM  
 - **Data Analysis:** Python (Pandas, NumPy, Scikit-learn)  
-- **PDF Generation:** ReportLab, PyMuPDF  
+- **PDF Generation:** ReportLab, PyMuPDF
+- **Database:** PostgreSQL
 
 ---
 
@@ -49,14 +50,14 @@
 
 ---
 ###1. Clone your repository
-# ------------------------------
+
 ```
 git clone https://github.com/punitayare722/resume_analyzer.git
 cd resume_analyzer
 ```
-# ------------------------------
+
 # 2. Backend Setup
-# ------------------------------
+
 ```
 cd backend
 ```
@@ -87,9 +88,9 @@ echo "GROQ_API_KEY=your_groq_api_key_here" > .env
 uvicorn app.main:app --reload
 # Backend will run at http://127.0.0.1:8000
 ```
-# ------------------------------
+
 # 3. Frontend Setup
-# ------------------------------
+
 ```
 cd ../frontend/resume-frontend
 ```
@@ -104,20 +105,19 @@ npm start
 ```
 # Frontend will run at http://localhost:3000
 
-# ------------------------------
-# 4. Usage
-# ------------------------------
-# 1. Open frontend in browser: http://localhost:3000
-# 2. Upload your existing PDF resume.
-# 3. Enter the target job description.
-# 4. Click "Analyze Resume".
-# 5. Review skill match %, missing skills, and roadmap.
-# 6. Download PDF report with detailed analysis.
 
-# ------------------------------
-# 5. Optional: Deactivate Backend Environment
-# ------------------------------
-deactivate
+# 4. Usage
+
+# 1. Open frontend in browser: http://localhost:3000
+# 2. Sign up or login using your PostgreSQL-backed credentials.
+# 3. Upload your existing PDF resume.
+# 4. Enter the target job description.
+# 5. Click "Analyze Resume".
+# 6. Review skill match %, missing skills, and roadmap.
+
+
+
+
 
 
 
